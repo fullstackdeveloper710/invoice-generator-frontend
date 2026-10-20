@@ -1,16 +1,60 @@
-# React + Vite
+# Invoice Generator - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Frontend web application for the Invoice Generator. Built with React, Vite, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Hook Form & Yup (form validation)
+- Axios
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the Oxlint configuration
+- Node.js 18+
+- Backend running on `http://localhost:5000`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Configure environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+
+   Ensure `VITE_API_URL` points to your backend:
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+3. Start dev server:
+   ```bash
+   npm run dev
+   ```
+
+   The app will open at `http://localhost:5173`.
+
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Features
+
+- Split-screen layout with real-time preview
+- Line item editor with automatic calculation of line totals, subtotal, discount, tax, and grand total
+- Custom fields support (with show/hide toggle on invoice)
+- Form validation for required fields, dates, emails, and phone numbers
+- Browser-native Print / Save to PDF support with print stylesheet
+- Save and reload invoices via URL ID parameter (`?id=...`)
+- Email invoice modal to send directly from the app
